@@ -2,12 +2,9 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { services } from "@/components/Services";
 
-type Params = {
-  params: { slug: string };
-};
 
-export default function ServicePage({ params }: Params) {
-  const { slug } = params;
+export default async function ServicePage(props: any) {
+  const slug =  await props.params.slug;
 
   const service = services.find((s) => s.slug === slug);
 
